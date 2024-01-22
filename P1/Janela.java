@@ -61,7 +61,7 @@ public class Janela {
         JButton incluirBotao = new JButton("Incluir");
         incluirBotao.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if (!campoTitulo.getText().equals("") && !campoAutor.getText().equals("") && !campoAno.getText().equals("")) {
+                if (!campoTitulo.getText().isEmpty() && !campoAutor.getText().isEmpty() && !campoAno.getText().isEmpty()) {
                     itens.add(new Livro(campoTitulo.getText(), campoAutor.getText(), Integer.parseInt(campoAno.getText())));
                     campoTitulo.setText("");
                     campoAutor.setText("");
@@ -158,9 +158,9 @@ public class Janela {
         JButton incluirBotao = new JButton("Incluir");
         incluirBotao.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if (!campoTitulo.getText().equals("") && !campoOrg.getText().equals("")
-                        && !campoVol.getText().equals("") && !campoNro.getText().equals("")
-                        && !campoAno.getText().equals("")) {
+                if (!campoTitulo.getText().isEmpty() && !campoOrg.getText().isEmpty()
+                        && !campoVol.getText().isEmpty() && !campoNro.getText().isEmpty()
+                        && !campoAno.getText().isEmpty()) {
                     itens.add(new Revista(campoTitulo.getText(), campoOrg.getText(),
                             Integer.parseInt(campoVol.getText()), Integer.parseInt(campoNro.getText()),
                             Integer.parseInt(campoAno.getText())));
@@ -215,17 +215,7 @@ public class Janela {
         JPanel manager = new JPanel(new FlowLayout());
         JTextArea lista = new JTextArea();
         for (Item item : itens) {
-            if (item instanceof Livro) {
-                lista.append("Livro: " + item.getTitulo() + ", "
-                        + ((Livro) item).getAutor() + ", "
-                        + item.getAno() + '\n');
-            } else {
-                lista.append("Revista: " + item.getTitulo() + ", "
-                        + ((Revista) item).getOrg() + ", "
-                        + ((Revista) item).getVol() + ", "
-                        + ((Revista) item).getNro() + ", "
-                        + item.getAno() + '\n');
-            }
+            lista.append(item.descricao());
         }
         JScrollPane scrollPane = new JScrollPane(lista);
         scrollPane.setPreferredSize(new Dimension(250, 110));

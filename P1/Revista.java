@@ -14,4 +14,9 @@ public class Revista extends Item {
     public int getVol() { return this.vol; }
 
     public int getNro() { return this.nro; }
+
+    public String descricao() {
+        return "Revista: " + this.titulo + ", " + this.org + ", "
+                + this.vol + ", " + this.nro + ", " + this.ano + '\n';
+    }
 }

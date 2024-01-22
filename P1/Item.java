@@ -1,4 +1,4 @@
-public class Item {
+public abstract class Item {
     String titulo;
     int ano;
 
@@ -10,4 +10,6 @@ public class Item {
     public String getTitulo() { return this.titulo; }
 
     public int getAno() { return this.ano; }
+
+    public abstract String descricao();
 }

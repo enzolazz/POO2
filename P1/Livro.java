@@ -7,4 +7,9 @@ public class Livro extends Item {
     }
 
     public String getAutor() { return this.autor; }
+
+    public String descricao() {
+        return "Livro: " + this.titulo + ", " + this.autor + ", "
+                + this.ano + '\n';
+    }
 }
