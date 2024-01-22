@@ -22,6 +22,32 @@ public class Janela {
         new Janela();
     }
 
+    private JPanel botoes(String tipo) {
+        JButton tipoBotao = new JButton(tipo);
+        tipoBotao.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                mainPanel.removeAll();
+                if (tipo.equals("Livros")) { Livros(); }
+                else { Revistas(); };
+            }
+        });
+
+        JButton listagemBotao = new JButton("Listagem");
+        listagemBotao.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mainPanel.removeAll();
+                Listar();
+            }
+        });
+
+        JPanel painelB = new JPanel();
+        painelB.add(tipoBotao);
+        painelB.add(listagemBotao);
+
+        return painelB;
+    }
+
     private void Livros() {
         // Cabecalho
         JPanel tituloPagina = new JPanel(new BorderLayout());
@@ -66,29 +92,15 @@ public class Janela {
                     campoTitulo.setText("");
                     campoAutor.setText("");
                     campoAno.setText("");
+                } else {
+                    JOptionPane.showMessageDialog(janela, "Por favor, insira informações válidas.", "Aviso", JOptionPane.WARNING_MESSAGE);
                 }
             }
         });
 
-        JButton revistasBotao = new JButton("Revistas");
-        revistasBotao.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                mainPanel.removeAll();
-                Revistas();
-            }
-        });
 
-        JButton listagemBotao = new JButton("Listagem");
-        listagemBotao.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                mainPanel.removeAll();
-                Listar();
-            }
-        });
         botoesPanel.add(incluirBotao);
-        botoesPanel.add(revistasBotao);
-        botoesPanel.add(listagemBotao);
+        botoesPanel.add(botoes("Revistas"));
 
         JPanel livros = new JPanel();
         livros.add(tituloLivro);
@@ -169,29 +181,14 @@ public class Janela {
                     campoVol.setText("");
                     campoNro.setText("");
                     campoAno.setText("");
+                } else {
+                    JOptionPane.showMessageDialog(janela, "Por favor, insira informações válidas.", "Aviso", JOptionPane.WARNING_MESSAGE);
                 }
             }
         });
 
-        JButton livrosBotao = new JButton("Livros");
-        livrosBotao.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                mainPanel.removeAll();
-                Livros();
-            }
-        });
-
-        JButton listagemBotao = new JButton("Listagem");
-        listagemBotao.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                mainPanel.removeAll();
-                Listar();
-            }
-        });
         botoesPanel.add(incluirBotao);
-        botoesPanel.add(livrosBotao);
-        botoesPanel.add(listagemBotao);
+        botoesPanel.add(botoes("Livros"));
 
         JPanel revistas = new JPanel();
 
