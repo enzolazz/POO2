@@ -8,6 +8,7 @@ public class Janela {
     JFrame janela;
     List<Item> itens = new ArrayList<>();
     JPanel mainPanel =  new JPanel(new BorderLayout());
+
     public Janela() {
         janela = new JFrame("P1");
         janela.setSize(300,220);
@@ -18,6 +19,7 @@ public class Janela {
 
         janela.setVisible(true);
     }
+
     public static void main(String[] args) {
         new Janela();
     }
@@ -48,157 +50,128 @@ public class Janela {
         return painelB;
     }
 
+    private JPanel inputFields(String nome, int colunas) {
+        JPanel painel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+
+        JLabel label = new JLabel(nome +":    ");
+        label.setFont(new Font("Arial", Font.PLAIN, 12));
+
+        JTextField campo = new JTextField();
+        campo.setColumns(colunas);
+
+        painel.add(label);
+        painel.add(campo);
+
+        return painel;
+    }
+
+    private JPanel cabecalho(String nome) {
+        JPanel painel = new JPanel(new BorderLayout());
+        JLabel label = new JLabel(nome, JLabel.CENTER);
+        label.setFont(new Font("Arial", Font.BOLD, 18));
+        painel.add(label);
+
+        return painel;
+    }
+
     private void Livros() {
-        // Cabecalho
-        JPanel tituloPagina = new JPanel(new BorderLayout());
-        JLabel labelLivros = new JLabel("Livros", JLabel.CENTER);
-        labelLivros.setFont(new Font("Arial", Font.BOLD, 18));
-        tituloPagina.add(labelLivros);
+        JPanel titulo = inputFields("Titulo", 20);
+        JPanel autor = inputFields("Autor", 20);
+        JPanel ano = inputFields("Ano", 4);
 
-        // Titulo
-        JPanel tituloLivro = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        JLabel labelTitulo = new JLabel("Titulo:    ");
-        labelTitulo.setFont(new Font("Arial", Font.PLAIN, 12));
-        JTextField campoTitulo = new JTextField();
-        campoTitulo.setColumns(20);
-        tituloLivro.add(labelTitulo);
-        tituloLivro.add(campoTitulo);
-
-        // Autor
-        JPanel autorLivro = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        JLabel labelAutor = new JLabel("Autor:    ");
-        labelAutor.setFont(new Font("Arial", Font.PLAIN, 12));
-        JTextField campoAutor = new JTextField();
-        campoAutor.setColumns(20);
-        autorLivro.add(labelAutor);
-        autorLivro.add(campoAutor);
-
-        // Ano
-        JPanel anoLivro = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        JLabel labelAno = new JLabel("Ano:       ");
-        labelAno.setFont(new Font("Arial", Font.PLAIN, 12));
-        JTextField campoAno = new JTextField();
-        campoAno.setColumns(6);
-        anoLivro.add(labelAno);
-        anoLivro.add(campoAno);
-
-        // Botoes
-        JPanel botoesPanel = new JPanel();
-        JButton incluirBotao = new JButton("Incluir");
-        incluirBotao.addActionListener(new ActionListener() {
+        JPanel painelBotoes = new JPanel();
+        JButton incluir = new JButton("Incluir");
+        incluir.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if (!campoTitulo.getText().isEmpty() && !campoAutor.getText().isEmpty() && !campoAno.getText().isEmpty()) {
-                    itens.add(new Livro(campoTitulo.getText(), campoAutor.getText(), Integer.parseInt(campoAno.getText())));
-                    campoTitulo.setText("");
-                    campoAutor.setText("");
-                    campoAno.setText("");
+                JTextField textoTitulo = (JTextField) titulo.getComponents()[1];
+                JTextField textoAutor = (JTextField) autor.getComponents()[1];
+                JTextField textoAno = (JTextField) ano.getComponents()[1];
+
+                if (textoTitulo.getText().isEmpty() || textoAutor.getText().isEmpty() || textoAno.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(janela, "Por favor, preencha todos os campos.", "Aviso", JOptionPane.WARNING_MESSAGE);
                 } else {
-                    JOptionPane.showMessageDialog(janela, "Por favor, insira informações válidas.", "Aviso", JOptionPane.WARNING_MESSAGE);
+                    try {
+                        int ano = Integer.parseInt(textoAno.getText());
+                        itens.add(new Livro(textoTitulo.getText(), textoAutor.getText(), ano));
+                        textoTitulo.setText("");
+                        textoAutor.setText("");
+                        textoAno.setText("");
+                    } catch (Exception a) {
+                        JOptionPane.showMessageDialog(janela, "Por favor, insira uma data válida.", "Aviso", JOptionPane.WARNING_MESSAGE);
+                    }
                 }
             }
         });
 
-
-        botoesPanel.add(incluirBotao);
-        botoesPanel.add(botoes("Revistas"));
-
         JPanel livros = new JPanel();
-        livros.add(tituloLivro);
-        livros.add(autorLivro);
-        livros.add(anoLivro);
+        livros.add(titulo);
+        livros.add(autor);
+        livros.add(ano);
 
-        mainPanel.add(tituloPagina, BorderLayout.NORTH);
+        painelBotoes.add(incluir);
+        painelBotoes.add(botoes("Revistas"));
+
+
+        mainPanel.add(cabecalho("Livros"), BorderLayout.NORTH);
         mainPanel.add(livros, BorderLayout.CENTER);
-        mainPanel.add(botoesPanel, BorderLayout.SOUTH);
+        mainPanel.add(painelBotoes, BorderLayout.SOUTH);
         janela.getContentPane().add(mainPanel, BorderLayout.CENTER);
         janela.revalidate();
         janela.repaint();
     }
 
     private void Revistas() {
-        // Cabecalho
-        JPanel tituloPagina = new JPanel(new BorderLayout());
-        JLabel labelRevistas = new JLabel("Revistas", JLabel.CENTER);
-        labelRevistas.setFont(new Font("Arial", Font.BOLD, 18));
-        tituloPagina.add(labelRevistas);
+        JPanel titulo = inputFields("Titulo", 20);
+        JPanel org = inputFields("Org.", 20);
+        JPanel vol = inputFields("Vol.", 2);
+        JPanel nro = inputFields("Nro.", 2);
+        JPanel ano = inputFields("Ano", 4);
 
-        // Titulo
-        JPanel tituloRevista = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        JLabel labelTitulo = new JLabel("Titulo: ");
-        labelTitulo.setFont(new Font("Arial", Font.PLAIN, 12));
-        JTextField campoTitulo = new JTextField();
-        campoTitulo.setColumns(20);
-        tituloRevista.add(labelTitulo);
-        tituloRevista.add(campoTitulo);
-
-        // Org/
-        JPanel orgRevista = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        JLabel labelOrg = new JLabel("Org.:   ");
-        labelOrg.setFont(new Font("Arial", Font.PLAIN, 12));
-        JTextField campoOrg = new JTextField();
-        campoOrg.setColumns(20);
-        orgRevista.add(labelOrg);
-        orgRevista.add(campoOrg);
-
-        // Vol.
-        JPanel inteirosRevista = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        JLabel labelVol = new JLabel("Vol.:    ");
-        labelVol.setFont(new Font("Arial", Font.PLAIN, 12));
-        JTextField campoVol = new JTextField();
-        campoVol.setColumns(2);
-        inteirosRevista.add(labelVol);
-        inteirosRevista.add(campoVol);
-
-        // Nro.
-        JLabel labelNro = new JLabel("Nro.:    ");
-        labelNro.setFont(new Font("Arial", Font.PLAIN, 12));
-        JTextField campoNro = new JTextField();
-        campoNro.setColumns(2);
-        inteirosRevista.add(labelNro);
-        inteirosRevista.add(campoNro);
-
-        // Ano
-        JLabel labelAno = new JLabel("Ano:    ");
-        labelAno.setFont(new Font("Arial", Font.PLAIN, 12));
-        JTextField campoAno = new JTextField();
-        campoAno.setColumns(4);
-        inteirosRevista.add(labelAno);
-        inteirosRevista.add(campoAno);
-
-        // Botoes
-        JPanel botoesPanel = new JPanel();
-        JButton incluirBotao = new JButton("Incluir");
-        incluirBotao.addActionListener(new ActionListener() {
+        JPanel painelBotoes = new JPanel();
+        JButton incluir = new JButton("Incluir");
+        incluir.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if (!campoTitulo.getText().isEmpty() && !campoOrg.getText().isEmpty()
-                        && !campoVol.getText().isEmpty() && !campoNro.getText().isEmpty()
-                        && !campoAno.getText().isEmpty()) {
-                    itens.add(new Revista(campoTitulo.getText(), campoOrg.getText(),
-                            Integer.parseInt(campoVol.getText()), Integer.parseInt(campoNro.getText()),
-                            Integer.parseInt(campoAno.getText())));
-                    campoTitulo.setText("");
-                    campoOrg.setText("");
-                    campoVol.setText("");
-                    campoNro.setText("");
-                    campoAno.setText("");
+                JTextField textoTitulo = (JTextField) titulo.getComponents()[1];
+                JTextField textoOrg = (JTextField) org.getComponents()[1];
+                JTextField textoVol = (JTextField) vol.getComponents()[1];
+                JTextField textoNro = (JTextField) nro.getComponents()[1];
+                JTextField textoAno = (JTextField) ano.getComponents()[1];
+
+                if (textoTitulo.getText().isEmpty() || textoOrg.getText().isEmpty() || textoVol.getText().isEmpty()
+                    || textoNro.getText().isEmpty() || textoAno.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(janela, "Por favor, preencha todos os campos.", "Aviso", JOptionPane.WARNING_MESSAGE);
                 } else {
-                    JOptionPane.showMessageDialog(janela, "Por favor, insira informações válidas.", "Aviso", JOptionPane.WARNING_MESSAGE);
+                    try {
+                        int vol = Integer.parseInt(textoVol.getText());
+                        int nro = Integer.parseInt(textoNro.getText());
+                        int ano = Integer.parseInt(textoAno.getText());
+                        itens.add(new Revista(textoTitulo.getText(), textoOrg.getText(), vol, nro, ano));
+                        textoTitulo.setText("");
+                        textoOrg.setText("");
+                        textoVol.setText("");
+                        textoNro.setText("");
+                        textoAno.setText("");
+                    } catch (Exception a) {
+                        JOptionPane.showMessageDialog(janela, "Por favor, insira números válidos.", "Aviso", JOptionPane.WARNING_MESSAGE);
+                    }
                 }
             }
         });
 
-        botoesPanel.add(incluirBotao);
-        botoesPanel.add(botoes("Livros"));
+        painelBotoes.add(incluir);
+        painelBotoes.add(botoes("Livros"));
 
         JPanel revistas = new JPanel();
 
-        revistas.add(tituloRevista);
-        revistas.add(orgRevista);
-        revistas.add(inteirosRevista);
+        revistas.add(titulo);
+        revistas.add(org);
+        revistas.add(vol);
+        revistas.add(nro);
+        revistas.add(ano);
 
-        mainPanel.add(tituloPagina, BorderLayout.NORTH);
+        mainPanel.add(cabecalho("Revistas"), BorderLayout.NORTH);
         mainPanel.add(revistas, BorderLayout.CENTER);
-        mainPanel.add(botoesPanel, BorderLayout.SOUTH);
+        mainPanel.add(painelBotoes, BorderLayout.SOUTH);
         janela.getContentPane().add(mainPanel, BorderLayout.CENTER);
         janela.revalidate();
         janela.repaint();

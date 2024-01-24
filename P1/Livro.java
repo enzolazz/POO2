@@ -1,5 +1,5 @@
 public class Livro extends Item {
-    String autor;
+    private String autor;
 
     public Livro(String titulo, String autor, int ano) {
         super(titulo, ano);
@@ -9,7 +9,7 @@ public class Livro extends Item {
     public String getAutor() { return this.autor; }
 
     public String descricao() {
-        return "Livro: " + this.titulo + ", " + this.autor + ", "
-                + this.ano + '\n';
+        return "Livro: " + titulo + ", " + autor + ", "
+                + ano + '\n';
     }
 }

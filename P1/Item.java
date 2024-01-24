@@ -1,6 +1,6 @@
 public abstract class Item {
-    String titulo;
-    int ano;
+    protected String titulo;
+    protected int ano;
 
     public Item(String titulo, int ano) {
         this.titulo = titulo;

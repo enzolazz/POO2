@@ -1,6 +1,6 @@
 public class Revista extends Item {
-    String org;
-    int vol, nro;
+    private String org;
+    private int vol, nro;
 
     public Revista(String titulo, String org, int vol, int nro, int ano) {
         super(titulo, ano);
@@ -16,7 +16,7 @@ public class Revista extends Item {
     public int getNro() { return this.nro; }
 
     public String descricao() {
-        return "Revista: " + this.titulo + ", " + this.org + ", "
-                + this.vol + ", " + this.nro + ", " + this.ano + '\n';
+        return "Revista: " + titulo + ", " + org + ", "
+                + vol + ", " + nro + ", " + ano + '\n';
     }
 }
