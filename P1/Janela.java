@@ -36,7 +36,6 @@ public class Janela {
 
         JButton listagemBotao = new JButton("Listagem");
         listagemBotao.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
                 mainPanel.removeAll();
                 Listar();
