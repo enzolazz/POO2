@@ -33,7 +33,7 @@ public abstract class DataManager extends WindowManager {
                         setSize(390, 220);
                     }
                 }
-                setLocationRelativeTo(null);
+                setLocationRelativeTo(DataManager.this);
             }
         });
 
@@ -50,7 +50,7 @@ public abstract class DataManager extends WindowManager {
                 mainPanel.removeAll();
                 Listagem();
                 setSize(300, 250);
-                setLocationRelativeTo(null);
+                setLocationRelativeTo(DataManager.this);
             }
         });
 
