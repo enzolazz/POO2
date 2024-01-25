@@ -5,4 +5,4 @@ Git repo dos trabalhos de POO2 - UFU.
 
 ## Tarefa 2
 ### TODO
-- TUDO
+- Aparentemente completo
