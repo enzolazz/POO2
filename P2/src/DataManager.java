@@ -9,6 +9,7 @@ public abstract class DataManager extends WindowManager {
     public DataManager() {
         super();
     }
+
     protected abstract void Livro();
     protected abstract void Revista();
     protected abstract void Video();
