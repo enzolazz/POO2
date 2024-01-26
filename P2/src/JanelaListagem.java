@@ -22,7 +22,6 @@ public class JanelaListagem {
             botoes.add(botao);
         }
 
-        FieldManager campo = new FieldManager(new JPanel());
         janela.getContentPane().add(new Header("Listagem").getHeader(), BorderLayout.NORTH);
         janela.getContentPane().add(text, BorderLayout.CENTER);
         janela.getContentPane().add(botoes, BorderLayout.SOUTH);
