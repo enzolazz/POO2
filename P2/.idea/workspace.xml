@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d19e287-a2d9-430f-8d97-e6f7704e3fe7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/out/production/P2/WindowManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/P2/WindowManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MetodosBotoes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Janelas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Janelas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MetodosBD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MetodosBD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MetodosPaineis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MetodosPaineis.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/WindowManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WindowManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -14,16 +18,23 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2bSyMGuV8jzqCauNUIgduWhyCua" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -32,6 +43,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
+    "Application.Unnamed.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -75,6 +87,7 @@
       <option name="presentableId" value="Default" />
       <updated>1706222732548</updated>
       <workItem from="1706222733600" duration="472000" />
+      <workItem from="1706288958137" duration="1461000" />
     </task>
     <servers />
   </component>

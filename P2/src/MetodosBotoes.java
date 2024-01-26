@@ -1,12 +1,10 @@
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.List;
 
-public abstract class DataManager extends WindowManager {
-    public DataManager() {
+public abstract class MetodosBotoes extends MetodosPaineis {
+    public MetodosBotoes() {
         super();
     }
 
@@ -34,7 +32,7 @@ public abstract class DataManager extends WindowManager {
                         setSize(390, 220);
                     }
                 }
-                setLocationRelativeTo(DataManager.this);
+                setLocationRelativeTo(MetodosBotoes.this);
             }
         });
 
@@ -51,7 +49,7 @@ public abstract class DataManager extends WindowManager {
                 mainPanel.removeAll();
                 Listagem();
                 setSize(300, 250);
-                setLocationRelativeTo(DataManager.this);
+                setLocationRelativeTo(MetodosBotoes.this);
             }
         });
 
@@ -67,7 +65,7 @@ public abstract class DataManager extends WindowManager {
             public void actionPerformed(ActionEvent e) {
                 List<JTextField> lista = incluir(text);
                 if (lista.isEmpty()) {
-                    JOptionPane.showMessageDialog(DataManager.this, "Por favor, preencha todos os campos.", "Aviso", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(MetodosBotoes.this, "Por favor, preencha todos os campos.", "Aviso", JOptionPane.WARNING_MESSAGE);
                 } else {
                     try {
                         switch (tipo) {
@@ -91,50 +89,11 @@ public abstract class DataManager extends WindowManager {
                             l.setText("");
                         }
                     } catch (Exception a) {
-                        JOptionPane.showMessageDialog(DataManager.this, "Por favor, insira números válidos.", "Aviso", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(MetodosBotoes.this, "Por favor, insira números válidos.", "Aviso", JOptionPane.WARNING_MESSAGE);
                     }
                 }
             }
         });
         return incluir;
-    }
-
-    protected JPanel inputFields(String nome, int colunas) {
-        JPanel painel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-
-        JLabel label = new JLabel(nome + ":    ");
-        label.setFont(new Font("Arial", Font.PLAIN, 12));
-
-        JTextField campo = new JTextField();
-        campo.setColumns(colunas);
-
-        painel.add(label);
-        painel.add(campo);
-
-        return painel;
-    }
-
-    protected JPanel cabecalho(String nome) {
-        JPanel painel = new JPanel(new BorderLayout());
-        JLabel label = new JLabel(nome, JLabel.CENTER);
-        label.setFont(new Font("Arial", Font.BOLD, 18));
-        painel.add(label);
-
-        return painel;
-    }
-
-    protected List<JTextField> incluir(JPanel painel) {
-        List<JTextField> campos = new ArrayList<>();
-        for (Component grid : painel.getComponents()) {
-            campos.add((JTextField) ((JPanel) grid).getComponents()[1]);
-        }
-
-        for (JTextField campo : campos) {
-            if (campo.getText().isEmpty()) {
-                return new ArrayList<>();
-            }
-        }
-
-        return campos;
     }
 }

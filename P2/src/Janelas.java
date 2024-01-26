@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Janelas extends DataManager {
+public abstract class Janelas extends MetodosBotoes {
     public Janelas() {
         super();
     }
