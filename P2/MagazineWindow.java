@@ -1,15 +1,15 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class JanelaLivro {
+public class MagazineWindow {
     private FieldManager campo;
     private InputManager dados;
     private Navigation navegacao;
     private JPanel corpo;
 
-    public JanelaLivro(JFrame janela, InputManager dados) {
+    public MagazineWindow(JFrame janela, InputManager dados) {
         this.dados = dados;
-        navegacao = new Navigation(janela, "Livro", this.dados);
+        navegacao = new Navigation(janela, "Revista", this.dados);
         campo = new FieldManager(new JPanel());
 
         campos();
@@ -17,7 +17,7 @@ public class JanelaLivro {
         corpo = campo.getPainel();
 
         JPanel botoes = new JPanel(new FlowLayout());
-        JButton incluir = dados.botao(corpo, "Livro");
+        JButton incluir = dados.botao(corpo, "Revista");
 
         botoes.add(incluir);
         for(JButton botao: navegacao.getBotoes()) {
@@ -25,7 +25,7 @@ public class JanelaLivro {
         }
 
 
-        janela.getContentPane().add(new Header("Livros").getHeader(), BorderLayout.NORTH);
+        janela.getContentPane().add(new Header("Revistas").getHeader(), BorderLayout.NORTH);
         janela.getContentPane().add(corpo, BorderLayout.CENTER);
         janela.getContentPane().add(botoes, BorderLayout.SOUTH);
 
@@ -35,7 +35,9 @@ public class JanelaLivro {
 
     private void campos() {
         campo.inputField("Título", 20);
-        campo.inputField("Autor", 20);
+        campo.inputField("Org.", 20);
+        campo.inputField("Vol.", 2);
+        campo.inputField("Nro.", 2);
         campo.inputField("Ano", 4);
     }
 }

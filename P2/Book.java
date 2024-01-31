@@ -1,8 +1,8 @@
-public class Livro extends Item {
+public class Book extends Item {
     private String autor;
     private int ano;
 
-    public Livro(String titulo, String autor, int ano) {
+    public Book(String titulo, String autor, int ano) {
         super(titulo);
         this.autor = autor;
         this.ano = ano;

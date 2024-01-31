@@ -1,11 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class JanelaListagem {
+public class ListingWindow {
     private InputManager dados;
     private Navigation navegacao;
 
-    public JanelaListagem(JFrame janela, InputManager dados) {
+    public ListingWindow(JFrame janela, InputManager dados) {
         this.dados = dados;
         navegacao = new Navigation(janela, "Listagem", this.dados);
 

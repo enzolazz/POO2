@@ -1,8 +1,8 @@
-public class Revista extends Item {
+public class Magazine extends Item {
     private String org;
     private int vol, nro, ano;
 
-    public Revista(String titulo, String org, int vol, int nro, int ano) {
+    public Magazine(String titulo, String org, int vol, int nro, int ano) {
         super(titulo);
         this.org = org;
         this.vol = vol;

@@ -1,13 +1,13 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class JanelaVideos {
+public class VideoWindow {
     private FieldManager campo;
     private InputManager dados;
     private Navigation navegacao;
     private JPanel corpo;
 
-    public JanelaVideos(JFrame janela, InputManager dados) {
+    public VideoWindow(JFrame janela, InputManager dados) {
         this.dados = dados;
         navegacao = new Navigation(janela, "Vídeo", this.dados);
         campo = new FieldManager(new JPanel());

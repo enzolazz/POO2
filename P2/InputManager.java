@@ -41,13 +41,13 @@ public class InputManager {
                         switch (tipo) {
                             case "Livro" -> {
                                 int ano = Integer.parseInt(lista.getLast().getText());
-                                itens.inserir(new Livro(lista.getFirst().getText(), lista.get(1).getText(), ano));
+                                itens.inserir(new Book(lista.getFirst().getText(), lista.get(1).getText(), ano));
                             }
                             case "Revista" -> {
                                 int ano = Integer.parseInt(lista.getLast().getText());
                                 int nro = Integer.parseInt(lista.get(lista.size() - 2).getText());
                                 int vol = Integer.parseInt(lista.get(lista.size() - 3).getText());
-                                itens.inserir(new Revista(lista.getFirst().getText(), lista.get(1).getText(), vol, nro, ano));
+                                itens.inserir(new Magazine(lista.getFirst().getText(), lista.get(1).getText(), vol, nro, ano));
                             }
                             case "Vídeo" -> {
                                 int duracao = Integer.parseInt(lista.getLast().getText());

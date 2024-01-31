@@ -49,7 +49,7 @@ public class Navigation {
             public void actionPerformed(ActionEvent e) {
                 janela.getContentPane().removeAll();
 
-                new JanelaLivro(janela, dados);
+                new BookWindow(janela, dados);
                 janela.setSize(390, 220);
 
                 janela.setLocationRelativeTo(janela);
@@ -65,7 +65,7 @@ public class Navigation {
             public void actionPerformed(ActionEvent e) {
                 janela.getContentPane().removeAll();
 
-                new JanelaRevistas(janela, dados);
+                new MagazineWindow(janela, dados);
                 janela.setSize(370, 220);
 
                 janela.setLocationRelativeTo(janela);
@@ -81,7 +81,7 @@ public class Navigation {
             public void actionPerformed(ActionEvent e) {
                 janela.getContentPane().removeAll();
 
-                new JanelaVideos(janela, dados);
+                new VideoWindow(janela, dados);
                 janela.setSize(390, 220);
 
                 janela.setLocationRelativeTo(janela);
@@ -97,7 +97,7 @@ public class Navigation {
             public void actionPerformed(ActionEvent e) {
                 janela.getContentPane().removeAll();
 
-                new JanelaListagem(janela, dados);
+                new ListingWindow(janela, dados);
                 janela.setSize(300, 250);
 
                 janela.setLocationRelativeTo(janela);
