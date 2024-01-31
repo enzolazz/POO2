@@ -21,5 +21,5 @@ public class FieldManager {
         this.painel.add(painel);
     }
 
-    public JPanel getPainel() { return painel; }
+    public JPanel getPannel() { return painel; }
 }

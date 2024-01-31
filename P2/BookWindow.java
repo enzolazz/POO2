@@ -12,15 +12,15 @@ public class BookWindow {
         navegacao = new Navigation(janela, "Livro", this.dados);
         campo = new FieldManager(new JPanel());
 
-        campos();
+        fields();
 
-        corpo = campo.getPainel();
+        corpo = campo.getPannel();
 
         JPanel botoes = new JPanel(new FlowLayout());
-        JButton incluir = dados.botao(corpo, "Livro");
+        JButton incluir = dados.button(corpo, "Livro");
 
         botoes.add(incluir);
-        for(JButton botao: navegacao.getBotoes()) {
+        for(JButton botao: navegacao.getButtons()) {
             botoes.add(botao);
         }
 
@@ -33,7 +33,7 @@ public class BookWindow {
         janela.repaint();
     }
 
-    private void campos() {
+    private void fields() {
         campo.inputField("Título", 20);
         campo.inputField("Autor", 20);
         campo.inputField("Ano", 4);

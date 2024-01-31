@@ -7,5 +7,5 @@ public abstract class Item {
 
     public String getTitulo() { return this.titulo; }
 
-    public abstract String descricao();
+    public abstract String description();
 }

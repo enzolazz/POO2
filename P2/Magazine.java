@@ -18,7 +18,7 @@ public class Magazine extends Item {
 
     public int getAno() { return ano; }
 
-    public String descricao() {
+    public String description() {
         return "Revista: " + titulo + ", " + org + ", "
                 + vol + ", " + nro + ", " + ano + '\n';
     }

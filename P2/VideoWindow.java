@@ -12,15 +12,15 @@ public class VideoWindow {
         navegacao = new Navigation(janela, "Vídeo", this.dados);
         campo = new FieldManager(new JPanel());
 
-        campos();
+        fields();
 
-        corpo = campo.getPainel();
+        corpo = campo.getPannel();
 
         JPanel botoes = new JPanel(new FlowLayout());
-        JButton incluir = dados.botao(corpo, "Vídeo");
+        JButton incluir = dados.button(corpo, "Vídeo");
 
         botoes.add(incluir);
-        for(JButton botao: navegacao.getBotoes()) {
+        for(JButton botao: navegacao.getButtons()) {
             botoes.add(botao);
         }
 
@@ -33,7 +33,7 @@ public class VideoWindow {
         janela.repaint();
     }
 
-    private void campos() {
+    private void fields() {
         campo.inputField("Título", 20);
         campo.inputField("Autor", 20);
         campo.inputField("Duração", 6);

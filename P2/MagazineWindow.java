@@ -12,15 +12,15 @@ public class MagazineWindow {
         navegacao = new Navigation(janela, "Revista", this.dados);
         campo = new FieldManager(new JPanel());
 
-        campos();
+        fields();
 
-        corpo = campo.getPainel();
+        corpo = campo.getPannel();
 
         JPanel botoes = new JPanel(new FlowLayout());
-        JButton incluir = dados.botao(corpo, "Revista");
+        JButton incluir = dados.button(corpo, "Revista");
 
         botoes.add(incluir);
-        for(JButton botao: navegacao.getBotoes()) {
+        for(JButton botao: navegacao.getButtons()) {
             botoes.add(botao);
         }
 
@@ -33,7 +33,7 @@ public class MagazineWindow {
         janela.repaint();
     }
 
-    private void campos() {
+    private void fields() {
         campo.inputField("Título", 20);
         campo.inputField("Org.", 20);
         campo.inputField("Vol.", 2);

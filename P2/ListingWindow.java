@@ -12,13 +12,13 @@ public class ListingWindow {
         JPanel text = new JPanel();
 
         JTextArea lista = new JTextArea();
-        lista.append(dados.getItens());
+        lista.append(dados.getItems());
         JScrollPane scrollPane = new JScrollPane(lista);
         scrollPane.setPreferredSize(new Dimension(250, 110));
         text.add(scrollPane);
 
         JPanel botoes = new JPanel(new FlowLayout());
-        for(JButton botao: navegacao.getBotoes()) {
+        for(JButton botao: navegacao.getButtons()) {
             botoes.add(botao);
         }
 

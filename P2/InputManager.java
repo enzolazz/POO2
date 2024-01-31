@@ -14,7 +14,7 @@ public class InputManager {
         this.itens = itens;
     }
 
-    private List<JTextField> incluir(JPanel painel) {
+    private List<JTextField> include(JPanel painel) {
         List<JTextField> campos = new ArrayList<>();
         for (Component grid : painel.getComponents()) {
             campos.add((JTextField) ((JPanel) grid).getComponents()[1]);
@@ -29,11 +29,11 @@ public class InputManager {
         return campos;
     }
 
-    public JButton botao(JPanel text, String tipo) {
+    public JButton button(JPanel text, String tipo) {
         JButton botao = new JButton("Incluir");
         botao.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                List<JTextField> lista = incluir(text);
+                List<JTextField> lista = include(text);
                 if (lista.isEmpty()) {
                     JOptionPane.showMessageDialog(janela, "Por favor, preencha todos os campos.", "Aviso", JOptionPane.WARNING_MESSAGE);
                 } else {
@@ -41,17 +41,17 @@ public class InputManager {
                         switch (tipo) {
                             case "Livro" -> {
                                 int ano = Integer.parseInt(lista.getLast().getText());
-                                itens.inserir(new Book(lista.getFirst().getText(), lista.get(1).getText(), ano));
+                                itens.insert(new Book(lista.getFirst().getText(), lista.get(1).getText(), ano));
                             }
                             case "Revista" -> {
                                 int ano = Integer.parseInt(lista.getLast().getText());
                                 int nro = Integer.parseInt(lista.get(lista.size() - 2).getText());
                                 int vol = Integer.parseInt(lista.get(lista.size() - 3).getText());
-                                itens.inserir(new Magazine(lista.getFirst().getText(), lista.get(1).getText(), vol, nro, ano));
+                                itens.insert(new Magazine(lista.getFirst().getText(), lista.get(1).getText(), vol, nro, ano));
                             }
                             case "Vídeo" -> {
                                 int duracao = Integer.parseInt(lista.getLast().getText());
-                                itens.inserir(new Video(lista.getFirst().getText(), lista.get(1).getText(), duracao));
+                                itens.insert(new Video(lista.getFirst().getText(), lista.get(1).getText(), duracao));
                             }
                         }
 
@@ -67,5 +67,5 @@ public class InputManager {
         return botao;
     }
 
-    public String getItens() { return itens.mostrar_itens(); }
+    public String getItems() { return itens.show_items(); }
 }

@@ -7,22 +7,22 @@ public class DataManager {
     public DataManager() {
     }
 
-    public void inserir(Item item) {
+    public void insert(Item item) {
         itens.add(item);
     }
 
-    public void remover(Item item) {
+    public void remove(Item item) {
         itens.remove(item);
     }
 
-    public String mostrar_itens() {
+    public String show_items() {
         String lista = "";
         for (Item item: itens) {
-            lista = lista.concat(item.descricao());
+            lista = lista.concat(item.description());
         }
 
         return lista;
     }
 
-    public List<Item> getItens() { return itens; }
+    public List<Item> getItems() { return itens; }
 }

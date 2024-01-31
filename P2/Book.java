@@ -12,7 +12,7 @@ public class Book extends Item {
 
     public int getAno() { return ano; }
 
-    public String descricao() {
+    public String description() {
         return "Livro: " + titulo + ", " + autor + ", "
                 + ano + '\n';
     }

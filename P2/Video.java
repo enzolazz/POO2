@@ -12,7 +12,7 @@ public class Video extends Item {
 
     public double getDuracao() { return duracao; }
 
-    public String descricao() {
+    public String description() {
         return "Video: " + titulo + ", " + autor + ", "
                 + duracao + '\n';
     }

@@ -13,37 +13,37 @@ public class Navigation {
 
         switch (tipo) {
             case "Livro" -> {
-                botoes[0] = botaoRevistas();
-                botoes[1] = botaoVideos();
-                botoes[2] = botaoListagem();
+                botoes[0] = magazineButton();
+                botoes[1] = videoButton();
+                botoes[2] = listingButton();
 
             }
             case "Revista" -> {
-                botoes[0] = botaoLivros();
-                botoes[1] = botaoVideos();
-                botoes[2] = botaoListagem();
+                botoes[0] = bookButton();
+                botoes[1] = videoButton();
+                botoes[2] = listingButton();
 
             }
             case "Vídeo" -> {
-                botoes[0] = botaoLivros();
-                botoes[1] = botaoRevistas();
-                botoes[2] = botaoListagem();
+                botoes[0] = bookButton();
+                botoes[1] = magazineButton();
+                botoes[2] = listingButton();
 
             }
             case "Listagem" -> {
-                botoes[0] = botaoLivros();
-                botoes[1] = botaoRevistas();
-                botoes[2] = botaoVideos();
+                botoes[0] = bookButton();
+                botoes[1] = magazineButton();
+                botoes[2] = videoButton();
 
             }
         }
     }
 
-    public JButton[] getBotoes() {
+    public JButton[] getButtons() {
         return botoes;
     }
 
-    private JButton botaoLivros() {
+    private JButton bookButton() {
         JButton botao = new JButton("Livros");
         botao.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -59,7 +59,7 @@ public class Navigation {
         return botao;
     }
 
-    private JButton botaoRevistas() {
+    private JButton magazineButton() {
         JButton botao = new JButton("Revistas");
         botao.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -75,7 +75,7 @@ public class Navigation {
         return botao;
     }
 
-    private JButton botaoVideos() {
+    private JButton videoButton() {
         JButton botao = new JButton("Vídeos");
         botao.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -91,7 +91,7 @@ public class Navigation {
         return botao;
     }
 
-    private JButton botaoListagem() {
+    private JButton listingButton() {
         JButton botao = new JButton("Listagem");
         botao.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
