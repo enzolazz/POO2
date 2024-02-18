@@ -1,0 +1,19 @@
+----------------------------------------------------------------
+Sun Feb 18 01:18:22 BRT 2024:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-018d-ba6f-c0e1-00001f707b30 
+on database directory C:\Users\Enzo\Documents\Faculdade\5P\POO2\P5\Listagem with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@76ed5528 
+Loaded from file:/C:/Users/Enzo/Documents/Derby%2010.14/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=21.0.2+13-58
+user.dir=C:\Users\Enzo\Documents\Faculdade\5P\POO2\P5
+os.name=Windows 11
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Sun Feb 18 01:18:23 BRT 2024: Shutting down Derby engine
+----------------------------------------------------------------
+Sun Feb 18 01:18:23 BRT 2024:
+Shutting down instance a816c00e-018d-ba6f-c0e1-00001f707b30 on database directory C:\Users\Enzo\Documents\Faculdade\5P\POO2\P5\Listagem with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@76ed5528 
+----------------------------------------------------------------
