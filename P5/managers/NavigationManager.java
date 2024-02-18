@@ -76,7 +76,7 @@ public class NavigationManager {
                 janela.getContentPane().removeAll();
 
                 new ListingWindow(janela, dados);
-                janela.setSize(300, 250);
+                janela.setSize(400, 300);
 
                 janela.setLocationRelativeTo(janela);
             }

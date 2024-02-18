@@ -14,18 +14,19 @@ public class ListingWindow {
 
         JPanel text = new JPanel();
 
-        JTextArea lista = new JTextArea();
-        lista.append(dados.getItems());
-        JScrollPane scrollPane = new JScrollPane(lista);
-        scrollPane.setPreferredSize(new Dimension(250, 110));
-        text.add(scrollPane);
+        JTextArea books = new JTextArea();
+        books.append(dados.getItems());
+        JScrollPane scrollBooks = new JScrollPane(books);
+        scrollBooks.setPreferredSize(new Dimension(300, 180));
+
+        text.add(scrollBooks);
 
         JPanel botoes = new JPanel(new FlowLayout());
         for(JButton botao: navegacao.getButtons()) {
             botoes.add(botao);
         }
 
-        janela.getContentPane().add(new HeaderManager("Listagem").getHeader(), BorderLayout.NORTH);
+        janela.getContentPane().add(new HeaderManager("Listagem", 18).getHeader(), BorderLayout.NORTH);
         janela.getContentPane().add(text, BorderLayout.CENTER);
         janela.getContentPane().add(botoes, BorderLayout.SOUTH);
 

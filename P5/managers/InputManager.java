@@ -6,6 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+
+import exceptions.KeyAlreadyStored;
 import items.*;
 
 public class InputManager {
@@ -43,22 +45,24 @@ public class InputManager {
                     try {
                         switch (tipo) {
                             case "Livro" -> {
-                                int ano = Integer.parseInt(lista.get(lista.size() - 1).getText());
+                                int ano = Integer.parseInt(lista.getLast().getText());
                                 itens.insert(new Book(lista.get(0).getText(), lista.get(1).getText(), ano));
                             }
                             case "Revista" -> {
-                                int ano = Integer.parseInt(lista.get(lista.size() - 1).getText());
+                                int ano = Integer.parseInt(lista.getLast().getText());
                                 int nro = Integer.parseInt(lista.get(lista.size() - 2).getText());
                                 int vol = Integer.parseInt(lista.get(lista.size() - 3).getText());
                                 itens.insert(new Magazine(lista.get(0).getText(), lista.get(1).getText(), vol, nro, ano));
                             }
                         }
-
+                    } catch (KeyAlreadyStored k) {
+                        JOptionPane.showMessageDialog(janela, "Chave primária já inserida.", "Aviso", JOptionPane.WARNING_MESSAGE);
+                    } catch (Exception a) {
+                        JOptionPane.showMessageDialog(janela, "Por favor, insira números válidos.", "Aviso", JOptionPane.WARNING_MESSAGE);
+                    } finally {
                         for (JTextField l : lista) {
                             l.setText("");
                         }
-                    } catch (Exception a) {
-                        JOptionPane.showMessageDialog(janela, "Por favor, insira números válidos.", "Aviso", JOptionPane.WARNING_MESSAGE);
                     }
                 }
             }
@@ -66,5 +70,15 @@ public class InputManager {
         return botao;
     }
 
-    public String getItems() { return itens.show_items(); }
+    public String getItems() {
+        return itens.show_items();
+    }
+
+    public String getBooks() {
+        return itens.show_books();
+    }
+
+    public String getMagazines() {
+        return itens.show_magazines();
+    }
 }
