@@ -16,17 +16,14 @@ public class DataManager {
     }
 
     public String show_items() {
-        result.list();
         return result.getBooksStored().concat(result.getMagazinesStored());
     }
 
     public String show_books() {
-        result.list();
         return result.getBooksStored();
     }
 
     public String show_magazines() {
-        result.list();
         return result.getMagazinesStored();
     }
 }

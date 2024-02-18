@@ -5,7 +5,7 @@ import java.sql.*;
 public class DBListing {
     String booksStored, magazinesStored;
 
-    public void list() {
+    private void list() {
         String driver = "org.apache.derby.jdbc.EmbeddedDriver";
         DBConnection dbConnection = new DBConnection(driver);
 
@@ -92,10 +92,12 @@ public class DBListing {
     }
 
     public String getBooksStored() {
+        list();
         return booksStored;
     }
 
     public String getMagazinesStored() {
+        list();
         return magazinesStored;
     }
 }
