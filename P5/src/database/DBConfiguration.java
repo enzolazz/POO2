@@ -16,15 +16,15 @@ public class DBConfiguration {
 
         String dropBookString   = "DROP TABLE Book";
         String createBookString = "CREATE TABLE Book  "
-                + "(titulo                  VARCHAR(60) NOT NULL, "
-                + "autor               VARCHAR(255) NOT NULL, "
+                + "(titulo VARCHAR(60) NOT NULL, "
+                + "autor VARCHAR(255) NOT NULL, "
                 + "ano INT NOT NULL, "
                 + "CONSTRAINT book_pk PRIMARY KEY (titulo, autor))";
 
         String dropMagazineString   = "DROP TABLE Magazine";
         String createMagazineString = "CREATE TABLE Magazine  "
-                + "(titulo                  VARCHAR(60) NOT NULL, "
-                + "org               VARCHAR(255) NOT NULL, "
+                + "(titulo VARCHAR(60) NOT NULL, "
+                + "org VARCHAR(255) NOT NULL, "
                 + "vol INT NOT NULL, "
                 + "nro INT NOT NULL, "
                 + "ano INT NOT NULL, "
@@ -54,20 +54,18 @@ public class DBConfiguration {
             conn.close();
             System.out.println("Closed connection");
 
-            if (driver.equals("org.apache.derby.jdbc.EmbeddedDriver")) {
-                boolean gotSQLExc = false;
-                try {
-                    DriverManager.getConnection("jdbc:derby:;shutdown=true");
-                } catch (SQLException se) {
-                    if (se.getSQLState().equals("XJ015")) {
-                        gotSQLExc = true;
-                    }
+            boolean gotSQLExc = false;
+            try {
+                DriverManager.getConnection("jdbc:derby:;shutdown=true");
+            } catch (SQLException se) {
+                if (se.getSQLState().equals("XJ015")) {
+                    gotSQLExc = true;
                 }
-                if (!gotSQLExc) {
-                    System.out.println("Database did not shut down normally");
-                } else {
-                    System.out.println("Database shut down normally");
-                }
+            }
+            if (!gotSQLExc) {
+                System.out.println("Database did not shut down normally");
+            } else {
+                System.out.println("Database shut down normally");
             }
 
         } catch (Throwable e) {
