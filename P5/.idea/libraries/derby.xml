@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="derby">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../../../Derby 10.14/lib/derby.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
